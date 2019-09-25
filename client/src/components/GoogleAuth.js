@@ -25,8 +25,9 @@ class GoogleAuth extends Component {
     });
   }
 
-  onAuthChange = () => {
-    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  //Note: this callback gets called with a boolean indicating signed in status
+  onAuthChange = isSignedIn => {
+    this.setState({ isSignedIn: isSignedIn });
   };
 
   onSignInClick = () => {
