@@ -27,7 +27,11 @@ class GoogleAuth extends Component {
 
   //Note: this callback gets called with a boolean indicating signed in status
   onAuthChange = isSignedIn => {
-    this.setState({ isSignedIn: isSignedIn });
+    if (isSignedIn) {
+      this.props.signIn();
+    } else {
+      this.props.signOut();
+    }
   };
 
   onSignInClick = () => {
