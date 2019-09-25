@@ -16,9 +16,16 @@ class GoogleAuth extends Component {
           this.auth = window.gapi.auth2.getAuthInstance();
           //set auth state on component
           this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+
+          //set a listener that fires when auth status changes
+          this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   }
+
+  onAuthChange = () => {
+    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  };
 
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
