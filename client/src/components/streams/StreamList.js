@@ -1,7 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchStreams } from '../../actions';
 
-const StreamList = () => {
+const StreamList = props => {
+  console.log(props.streams);
   return <div>StreamList</div>;
 };
 
-export default StreamList;
+const mapStateToProps = state => {
+  return { streams: state.streams };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchStreams }
+)(StreamList);
