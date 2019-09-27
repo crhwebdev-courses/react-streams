@@ -15,3 +15,15 @@ const credentials = {
 
 export default credentials;
 ```
+
+## API Setup
+
+1. create an api/db.json file
+2. File should contain the following code:
+
+```
+{
+  "streams": []
+}
+
+```
