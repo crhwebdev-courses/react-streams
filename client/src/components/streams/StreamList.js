@@ -8,14 +8,9 @@ class StreamList extends Component {
   }
 
   renderStreams() {
-    let streams = [];
-
-    for (let key in this.props.streams) {
-      const stream = this.props.streams[key];
-      streams.push(<div key={stream.id}>{stream.title}</div>);
-    }
-
-    return streams;
+    return this.props.streams.map(stream => {
+      return <div key={stream.id}>{stream.title}</div>;
+    });
   }
 
   render() {
@@ -24,7 +19,9 @@ class StreamList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { streams: state.streams };
+  //return an array of the values in the streams object
+  // to convert streams into an array for display
+  return { streams: Object.values(state.streams) };
 };
 
 export default connect(
