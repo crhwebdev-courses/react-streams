@@ -7,6 +7,12 @@ class StreamList extends Component {
     this.props.fetchStreams();
   }
 
+  renderAdmin(stream) {
+    if (stream.userId === this.props.currentUserId) {
+      return <div>EDIT/DELETE</div>;
+    }
+  }
+
   renderStreams() {
     return this.props.streams.map(stream => {
       return (
@@ -16,6 +22,7 @@ class StreamList extends Component {
             {stream.title}
             <div className="description">{stream.description}</div>
           </div>
+          {this.renderAdmin(stream)}
         </div>
       );
     });
@@ -34,7 +41,10 @@ class StreamList extends Component {
 const mapStateToProps = state => {
   //return an array of the values in the streams object
   // to convert streams into an array for display
-  return { streams: Object.values(state.streams), userId: state.auth.userId };
+  return {
+    streams: Object.values(state.streams),
+    currentUserId: state.auth.userId
+  };
 };
 
 export default connect(
