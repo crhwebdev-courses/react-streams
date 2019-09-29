@@ -34,7 +34,7 @@ class StreamList extends Component {
 const mapStateToProps = state => {
   //return an array of the values in the streams object
   // to convert streams into an array for display
-  return { streams: Object.values(state.streams) };
+  return { streams: Object.values(state.streams), userId: state.auth.userId };
 };
 
 export default connect(
