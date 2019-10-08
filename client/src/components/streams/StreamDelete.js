@@ -2,11 +2,14 @@ import React from 'react';
 import Modal from '../Modal';
 
 const StreamDelete = () => {
+  //use of react fragments: renders an invisible element so you can
+  // render multiple elements in an invisible element without needing to wrap them in
+  // a container element
   const actions = (
-    <div>
+    <React.Fragment>
       <button className="ui button negative">Delete</button>
       <button className="ui button">Cancel</button>
-    </div>
+    </React.Fragment>
   );
 
   return (
