@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal';
+import history from '../../history';
 
 const StreamDelete = () => {
   //use of react fragments: renders an invisible element so you can
@@ -19,6 +20,7 @@ const StreamDelete = () => {
         title="Delete Stream"
         content="Do you want to delete this stream?"
         actions={actions}
+        onDismiss={() => history.push('/')}
       />
     </div>
   );
