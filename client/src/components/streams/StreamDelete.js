@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Modal from '../Modal';
 import history from '../../history';
+import { fetchStream } from '../../actions/';
 
 class StreamDelete extends Component {
-  //use of react fragments: renders an invisible element so you can
-  // render multiple elements in an invisible element without needing to wrap them in
-  // a container element
+  componentDidMount() {
+    this.props.fetchStream(this.props.match.params.id);
+  }
 
   renderActionButtons() {
+    //use of react fragments: renders an invisible element so you can
+    // render multiple elements in an invisible element without needing to wrap them in
+    // a container element
     return (
       <React.Fragment>
         <button className="ui button negative">Delete</button>
@@ -17,6 +22,7 @@ class StreamDelete extends Component {
   }
 
   render() {
+    console.log(this.props.stream);
     return (
       <div>
         StreamDelete
@@ -31,4 +37,11 @@ class StreamDelete extends Component {
   }
 }
 
-export default StreamDelete;
+const mapStateToProps = (state, ownProps) => {
+  return { stream: state.streams[ownProps.match.params.id] };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchStream }
+)(StreamDelete);
