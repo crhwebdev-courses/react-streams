@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchStream } from '../../actions';
 
-const StreamShow = () => {
-  return <div>StreamShow</div>;
-};
+class StreamShow extends Component {
+  render() {
+    return <div>ShowStream</div>;
+  }
+}
 
-export default StreamShow;
+export default connect(
+  null,
+  { fetchStream }
+)(StreamShow);
