@@ -31,4 +31,5 @@ export default credentials;
 ## Running the App
 
 1. change to api directory and type in console: `npm run start`
-2. change to a new console and switch to client directory and type: `npm run start`
+2. change to rtmpserver directory and type i console: `npm run start`
+3. change to a new console and switch to client directory and type: `npm run start`
