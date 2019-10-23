@@ -28,8 +28,10 @@ export default credentials;
 
 ```
 
-## Running the App
+## Running the App Locally
 
 1. change to api directory and type in console: `npm run start`
 2. change to rtmpserver directory and type i console: `npm run start`
 3. change to a new console and switch to client directory and type: `npm run start`
+
+Note: if client does not start up automatically, you should navigate to localhost:3000 in your browser.
