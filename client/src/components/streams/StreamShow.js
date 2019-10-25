@@ -16,6 +16,20 @@ class StreamShow extends Component {
     // get streams from api database
     this.props.fetchStream(id);
 
+    this.buildPlayer();
+  }
+
+  componentDidUpdate() {
+    this.buildPlayer();
+  }
+
+  buildPlayer() {
+    if (this.player || !this.props.stream) {
+      return;
+    }
+
+    const { id } = this.props.match.params;
+
     //create an flv player
     this.player = flv.createPlayer({
       type: 'flv',
